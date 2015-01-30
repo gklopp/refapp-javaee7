@@ -8,14 +8,7 @@
 
     <packaging>war</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <!-- ****************************** BUILD ****************************** -->
 
     <build>
         <defaultGoal>clean install</defaultGoal>
@@ -28,6 +21,25 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webappDirectory>${project.build.directory}/refapp-javaee7.war</webappDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <!-- ************************** DEPENDENCIES *************************  -->
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
 </project>
