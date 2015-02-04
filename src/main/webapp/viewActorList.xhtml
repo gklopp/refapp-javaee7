@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="content">
+
+        <h:messages />
+
+        <h:dataTable value="#{viewActorListController.actorList}" var="actor"
+                     styleClass="actor-table"
+                     headerClass="actor-table-header"
+                     rowClasses="actor-table-odd-row,actor-table-even-row">
+
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{actor.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                #{actor.firstName}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                #{actor.lastName}
+            </h:column>
+        </h:dataTable>
+
+    </ui:define>
+</ui:composition>
+</html>
