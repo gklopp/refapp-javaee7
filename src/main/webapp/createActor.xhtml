@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="content">
+        <h:messages />
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="userId">Usern Id:</h:outputLabel>
+                <h:inputText id="userId" value="#{createActorController.newActor.id}" />
+                <h:message for="userId" />
+
+                <h:outputLabel for="firstName">First name:</h:outputLabel>
+                <h:inputText id="firstName" value="#{createActorController.newActor.firstName}" />
+                <h:message for="firstName" />
+
+                <h:outputLabel for="lastName">Last name:</h:outputLabel>
+                <h:inputText id="lastName" value="#{createActorController.newActor.lastName}" />
+                <h:message for="lastName" />
+
+            </h:panelGrid>
+            <h:commandButton value="Create" action="#{createActorController.createActor}" />
+        </h:form>
+        <h:link outcome="/viewActorList.xhtml">View actor list</h:link>
+    </ui:define>
+
+</ui:composition>
+</html>

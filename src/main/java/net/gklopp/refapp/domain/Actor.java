@@ -8,11 +8,18 @@ public class Actor {
 
     private String lastName;
 
+    // ***************************** CONSTRUCTORS ******************************
+
+    public Actor() {
+    }
+
     public Actor(String id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    // *************************** GETTERS / SETTERS ***************************
 
     public String getId() {
         return id;
@@ -37,6 +44,8 @@ public class Actor {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    // *************************************************************************
 
     @Override
     public boolean equals(Object o) {
