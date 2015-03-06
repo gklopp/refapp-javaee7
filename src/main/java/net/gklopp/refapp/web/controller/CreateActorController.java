@@ -40,7 +40,7 @@ public class CreateActorController {
     public void createActor() {
 
         actorService.createActor(newActor);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Actor " + newActor.getId() + " has been saved"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Actor '" + newActor.getUserId() + "' has been created"));
         init();
     }
 }

@@ -1,11 +1,32 @@
 package net.gklopp.refapp.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@NamedQueries({
+        @NamedQuery(name = Actor.GET_ACTORS_QUERY,
+                    query = "SELECT a FROM Actor a"),
+})
 public class Actor {
 
-    private String id;
+    public static final String GET_ACTORS_QUERY = "getActors";
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotNull
+    @Size(min = 3, message="User id is not valid")
+    private String userId;
+
+    @NotNull
+    @Size(min = 2, message = "First name is not valid")
     private String firstName;
 
+    @NotNull
+    @Size(min = 2, message="Last name is not valid")
     private String lastName;
 
     // ***************************** CONSTRUCTORS ******************************
@@ -13,20 +34,28 @@ public class Actor {
     public Actor() {
     }
 
-    public Actor(String id, String firstName, String lastName) {
-        this.id = id;
+    public Actor(String userId, String firstName, String lastName) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     // *************************** GETTERS / SETTERS ***************************
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    void setId(long id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String id) {
+        this.userId = id;
     }
 
     public String getFirstName() {
@@ -54,8 +83,8 @@ public class Actor {
 
         Actor actor = (Actor) o;
 
+        if (userId != null ? !userId.equals(actor.userId) : actor.userId != null) return false;
         if (firstName != null ? !firstName.equals(actor.firstName) : actor.firstName != null) return false;
-        if (id != null ? !id.equals(actor.id) : actor.id != null) return false;
         if (lastName != null ? !lastName.equals(actor.lastName) : actor.lastName != null) return false;
 
         return true;
@@ -63,7 +92,7 @@ public class Actor {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = userId != null ? userId.hashCode() : 0;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
@@ -73,6 +102,7 @@ public class Actor {
     public String toString() {
         return "Actor{" +
                 "id='" + id + '\'' +
+                "userId='" + userId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
