@@ -10,22 +10,22 @@
         <h:messages />
         <h:form>
             <h:panelGrid columns="3">
-                <h:outputLabel for="userId">Usern Id:</h:outputLabel>
+                <h:outputLabel for="userId" value="#{labels['actor.userId']}" />
                 <h:inputText id="userId" value="#{createActorController.newActor.userId}" p:autofocus="true" />
                 <h:message for="userId" />
 
-                <h:outputLabel for="firstName">First name:</h:outputLabel>
+                <h:outputLabel for="firstName" value="#{labels['actor.firstName']}" />
                 <h:inputText id="firstName" value="#{createActorController.newActor.firstName}" />
                 <h:message for="firstName" />
 
-                <h:outputLabel for="lastName">Last name:</h:outputLabel>
+                <h:outputLabel for="lastName" value="#{labels['actor.lastName']}" />
                 <h:inputText id="lastName" value="#{createActorController.newActor.lastName}" />
                 <h:message for="lastName" />
 
             </h:panelGrid>
-            <h:commandButton value="Create" action="#{createActorController.createActor}" />
+            <h:commandButton value="#{labels['actor.create']}" action="#{createActorController.createActor}" />
         </h:form>
-        <h:link outcome="/viewActorList.xhtml">View actor list</h:link>
+        <h:link outcome="/viewActorList.xhtml" value="#{labels['navigation.viewActorList']}" />
     </ui:define>
 
 </ui:composition>

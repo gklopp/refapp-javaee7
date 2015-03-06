@@ -15,22 +15,22 @@
                      rowClasses="actor-table-odd-row,actor-table-even-row">
 
             <h:column>
-                <f:facet name="header">Id</f:facet>
+                <f:facet name="header">#{labels['actor.userId']}</f:facet>
                 #{actor.userId}
             </h:column>
 
             <h:column>
-                <f:facet name="header">First Name</f:facet>
+                <f:facet name="header">#{labels['actor.firstName']}</f:facet>
                 #{actor.firstName}
             </h:column>
 
             <h:column>
-                <f:facet name="header">Last Name</f:facet>
+                <f:facet name="header">#{labels['actor.lastName']}</f:facet>
                 #{actor.lastName}
             </h:column>
         </h:dataTable>
 
-        <h:link outcome="/createActor.xhtml">Create actor</h:link>
+        <h:link outcome="/createActor.xhtml" value="#{labels['navigation.createActor']}" />
 
     </ui:define>
 </ui:composition>
