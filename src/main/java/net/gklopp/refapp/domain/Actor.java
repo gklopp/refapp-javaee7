@@ -18,15 +18,15 @@ public class Actor {
     private long id;
 
     @NotNull
-    @Size(min = 3, message="User id is not valid")
+    @Size(min = 3, message="{actor.userId.notValid}")
     private String userId;
 
     @NotNull
-    @Size(min = 2, message = "First name is not valid")
+    @Size(min = 2, message = "{actor.firstName.notValid}")
     private String firstName;
 
     @NotNull
-    @Size(min = 2, message="Last name is not valid")
+    @Size(min = 2, message="{actor.lastName.notValid}")
     private String lastName;
 
     // ***************************** CONSTRUCTORS ******************************
