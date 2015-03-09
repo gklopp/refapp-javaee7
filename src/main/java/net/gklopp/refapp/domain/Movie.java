@@ -69,7 +69,7 @@ public class Movie {
     }
 
     // *************************************************************************
-    
+
     @Override
     public boolean equals(Object o) {
 
