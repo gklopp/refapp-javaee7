@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="content">
+        <h:messages />
+        <h:form>
+            <h:panelGrid columns="2">
+
+                <h:outputLabel for="title" value="#{labels['movie.title']}" />
+                <h:inputText id="title" value="#{createMovieController.newMovie.title}" p:autofocus="true" />
+
+            </h:panelGrid>
+            <h:commandButton value="#{labels['movie.create']}" action="#{createMovieController.createMovie}" />
+        </h:form>
+        <h:link outcome="/viewMovieList.xhtml" value="#{labels['navigation.viewMovieList']}" />
+    </ui:define>
+
+</ui:composition>
+</html>

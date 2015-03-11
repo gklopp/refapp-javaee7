@@ -1,14 +1,19 @@
 package net.gklopp.refapp.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@NamedQueries({
+        @NamedQuery(name = Movie.GET_MOVIES_QUERY,
+                    query = "SELECT m FROM Movie m"),
+})
 public class Movie {
+
+    public static final String GET_MOVIES_QUERY = "getMovies";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +23,7 @@ public class Movie {
 
     private LocalDate releaseDate;
 
+    @Transient
     private Set<Actor> actors = new HashSet<>();
 
     // ***************************** CONSTRUCTORS ******************************
