@@ -7,19 +7,20 @@ import net.gklopp.refapp.service.ActorService;
 import net.gklopp.refapp.service.MovieService;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Controller that creates a new Movie.
  */
 @Named
-@RequestScoped
-public class CreateMovieController {
+@ViewScoped
+public class CreateMovieController implements Serializable {
 
     private Movie newMovie;
 
@@ -47,6 +48,10 @@ public class CreateMovieController {
         return newActor;
     }
 
+    public void setNewActor(Actor newActor) {
+        this.newActor = newActor;
+    }
+
     // ***************************** INITIALIZATION ****************************
 
     @PostConstruct
@@ -54,6 +59,13 @@ public class CreateMovieController {
 
         newMovie = new Movie();
         actorList = actorService.getActors();
+    }
+
+    public void addActor() {
+
+        if (newActor != null) {
+            newMovie.addActor(newActor);
+        }
     }
 
     public void createMovie() {

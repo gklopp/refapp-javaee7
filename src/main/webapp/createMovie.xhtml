@@ -15,10 +15,18 @@
                 <h:outputLabel for="title" value="#{labels['movie.title']}" />
                 <h:inputText id="title" value="#{createMovieController.newMovie.title}" p:autofocus="true" />
 
-                <h:outputLabel for="title" value="#{labels['movie.actors']}" />
-                <h:selectOneMenu value="#{createMovieController.newActor}">
-                    <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName}" />
-                </h:selectOneMenu>
+                <h:outputLabel value="#{labels['movie.actors']}" />
+                <h:panelGroup>
+                    <h:dataTable value="#{createMovieController.newMovie.actors}" var="actor">
+                        <h:column>
+                            <h:outputText value="#{actor.firstName} #{actor.firstName}" />
+                        </h:column>
+                    </h:dataTable>
+                    <h:selectOneMenu value="#{createMovieController.newActor}">
+                        <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName}" />
+                    </h:selectOneMenu>
+                    <h:commandButton value="Add" action="#{createMovieController.addActor}" />
+                </h:panelGroup>
 
             </h:panelGrid>
             <h:commandButton value="#{labels['movie.create']}" action="#{createMovieController.createMovie}" />
