@@ -23,6 +23,7 @@
                         </h:column>
                     </h:dataTable>
                     <h:selectOneMenu value="#{createMovieController.newActor}">
+                        <f:converter converterId="actorConverter" />
                         <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName}" />
                     </h:selectOneMenu>
                     <h:commandButton value="Add" action="#{createMovieController.addActor}" />

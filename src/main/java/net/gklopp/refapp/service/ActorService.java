@@ -15,6 +15,11 @@ public class ActorService {
 
     // *************************************************************************
 
+    public Actor getActorById(long actorId) {
+
+        return entityManager.find(Actor.class, actorId);
+    }
+
     public List<Actor> getActors() {
 
         List<Actor> actors = entityManager.createNamedQuery(Actor.GET_ACTORS_QUERY, Actor.class).getResultList();
