@@ -22,11 +22,13 @@
                             <h:outputText value="#{actor.firstName} #{actor.firstName}" />
                         </h:column>
                     </h:dataTable>
-                    <h:selectOneMenu value="#{createMovieController.newActor}">
-                        <f:converter converterId="actorConverter" />
-                        <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName}" />
-                    </h:selectOneMenu>
-                    <h:commandButton value="Add" action="#{createMovieController.addActor}" />
+                    <h:panelGroup rendered="#{not createMovieController.actorList.isEmpty()}">
+                        <h:selectOneMenu value="#{createMovieController.newActor}">
+                            <f:converter converterId="actorConverter" />
+                            <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName} TEST" />
+                        </h:selectOneMenu>
+                        <h:commandButton value="Add" action="#{createMovieController.addActor}" />
+                    </h:panelGroup>
                 </h:panelGroup>
 
             </h:panelGrid>

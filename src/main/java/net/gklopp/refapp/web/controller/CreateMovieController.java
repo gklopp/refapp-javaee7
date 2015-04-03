@@ -65,6 +65,7 @@ public class CreateMovieController implements Serializable {
 
         if (newActor != null) {
             newMovie.addActor(newActor);
+            actorList.remove(newActor);
         }
     }
 
