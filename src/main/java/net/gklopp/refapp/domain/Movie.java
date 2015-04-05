@@ -1,6 +1,9 @@
 package net.gklopp.refapp.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
@@ -19,6 +22,8 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull(message = "{movie.title.notValid}")
+    @Size(min = 3, message = "{movie.title.notValid}")
     private String title;
 
     private LocalDate releaseDate;
