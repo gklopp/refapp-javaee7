@@ -6,6 +6,6 @@
     <display-name>Movies and Actors</display-name>
 
     <welcome-file-list>
-        <welcome-file>faces/viewActorList.xhtml</welcome-file>
+        <welcome-file>faces/home.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>

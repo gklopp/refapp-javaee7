@@ -5,14 +5,17 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Movies and Actors</title>
+        <title>Java Movie Database</title>
         <h:outputStylesheet library="css" name="table-style.css"  />
     </h:head>
 
     <body>
 
         <div id="container">
-            <div id="header"></div>
+            <div id="header">
+                <h:link outcome="/home.xhtml" value="#{labels['navigation.home']}" />
+                <br/><br/>
+            </div>
 
             <div id="sidebar"></div>
 
