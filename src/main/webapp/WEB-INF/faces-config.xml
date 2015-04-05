@@ -17,6 +17,10 @@
             <base-name>net.gklopp.refapp.labels</base-name>
             <var>labels</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>ValidationMessages</base-name>
+            <var>validationMessages</var>
+        </resource-bundle>
     </application>
 
 </faces-config>

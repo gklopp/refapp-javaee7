@@ -21,7 +21,7 @@
 
             <h:column>
                 <f:facet name="header">#{labels['movie.releaseDate']}</f:facet>
-                #{movie.releaseDate}
+                <h:outputText value="#{movie.releaseDate}" converter="localDateConverter" />
             </h:column>
 
         </h:dataTable>

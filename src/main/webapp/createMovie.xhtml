@@ -15,6 +15,11 @@
                 <h:outputLabel for="title" value="#{labels['movie.title']}" />
                 <h:inputText id="title" value="#{createMovieController.newMovie.title}" p:autofocus="true" />
 
+                <h:outputLabel for="releaseDate" value="#{labels['movie.releaseDate']}" />
+                <h:inputText id="releaseDate" value="#{createMovieController.newMovie.releaseDate}" p:autofocus="true">
+                    <f:converter converterId="localDateConverter" />
+                </h:inputText>
+
                 <h:outputLabel value="#{labels['movie.actors']}" />
                 <h:panelGroup>
                     <h:dataTable value="#{createMovieController.newMovie.actors}" var="actor">
@@ -25,7 +30,7 @@
                     <h:panelGroup rendered="#{not createMovieController.actorList.isEmpty()}">
                         <h:selectOneMenu value="#{createMovieController.newActor}">
                             <f:converter converterId="actorConverter" />
-                            <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName} TEST" />
+                            <f:selectItems value="#{createMovieController.actorList}" var="actor" itemLabel="#{actor.firstName} #{actor.lastName}" />
                         </h:selectOneMenu>
                         <h:commandButton value="Add" action="#{createMovieController.addActor}" />
                     </h:panelGroup>
