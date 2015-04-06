@@ -7,6 +7,7 @@ import net.gklopp.refapp.service.ActorService;
 import net.gklopp.refapp.service.MovieService;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Instance;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -33,6 +34,9 @@ public class CreateMovieController implements Serializable {
 
     @Inject
     private ActorService actorService;
+
+    @Inject
+    private transient Instance<FacesContext> facesContext;
 
     // *************************** GETTERS / SETTERS ***************************
 
@@ -72,7 +76,7 @@ public class CreateMovieController implements Serializable {
     public void createMovie() {
 
         movieService.createMovie(newMovie);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Movie '" + newMovie.getTitle() + "' has been created"));
+        facesContext.get().addMessage(null, new FacesMessage("Movie '" + newMovie.getTitle() + "' has been created"));
         init();
     }
 }
