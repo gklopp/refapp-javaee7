@@ -98,6 +98,7 @@ public class CreateMovieControllerTest {
 
         List<Actor> actorList = createMovieController.getActorList();
         assertThat(actorList).hasSize(nrOfActorsInListBeforeAdd);
+        assertThat(createMovieController.getNewActor()).isNull();
     }
 
     @Test

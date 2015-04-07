@@ -6,6 +6,7 @@ import net.gklopp.refapp.service.ActorService;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Instance;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -22,6 +23,9 @@ public class CreateActorController {
 
     @Inject
     private ActorService actorService;
+
+    @Inject
+    private transient Instance<FacesContext> facesContext;
 
     // *************************** GETTERS / SETTERS ***************************
 
@@ -40,7 +44,7 @@ public class CreateActorController {
     public void createActor() {
 
         actorService.createActor(newActor);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Actor '" + newActor.getUserId() + "' has been created"));
+        facesContext.get().addMessage(null, new FacesMessage("Actor '" + newActor.getUserId() + "' has been created"));
         init();
     }
 }
