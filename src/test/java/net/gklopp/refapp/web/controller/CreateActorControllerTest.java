@@ -36,6 +36,7 @@ public class CreateActorControllerTest {
     @Mock
     private FacesContext facesContext;
 
+    // ***************************** INITIALIZATION ****************************
 
     @Before
     public void init() {
@@ -44,6 +45,8 @@ public class CreateActorControllerTest {
 
         createActorController.init();
     }
+
+    // *************************************************************************
 
     @Test
     public void shouldCreateActor() {

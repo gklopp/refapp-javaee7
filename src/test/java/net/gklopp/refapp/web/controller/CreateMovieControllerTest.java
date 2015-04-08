@@ -44,6 +44,8 @@ public class CreateMovieControllerTest {
     @Mock
     private FacesContext facesContext;
 
+    // ***************************** INITIALIZATION ****************************
+
     @Before
     public void init() {
 
@@ -60,6 +62,8 @@ public class CreateMovieControllerTest {
 
         createMovieController.init();
     }
+
+    // *************************************************************************
 
     @Test
     public void shouldAddActor() throws Exception {
@@ -100,6 +104,8 @@ public class CreateMovieControllerTest {
         assertThat(actorList).hasSize(nrOfActorsInListBeforeAdd);
         assertThat(createMovieController.getNewActor()).isNull();
     }
+
+    // *************************************************************************
 
     @Test
     public void shouldCreateMovie() throws Exception {
