@@ -65,7 +65,7 @@
                         </executions>
                         <configuration>
                             <systemPropertyVariables>
-                                <selenium.webSiteUnderTest.baseUrl>http://localhost:8180/refapp-javaee7/faces/</selenium.webSiteUnderTest.baseUrl>
+                                <selenium.webSiteUnderTest.baseUrl>http://localhost:8080/refapp-javaee7/faces/</selenium.webSiteUnderTest.baseUrl>
                             </systemPropertyVariables>
                             <includes>
                                 <include>**/*WebIT.java</include>
